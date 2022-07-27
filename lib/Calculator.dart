@@ -22,7 +22,6 @@ class _CalculatorState extends State<Calculator> {
       ),
       style: ElevatedButton.styleFrom(
         fixedSize: Size(70, 70),
-        shape: CircleBorder(),
         primary: btnColor,
       ),
     );
@@ -44,7 +43,7 @@ class _CalculatorState extends State<Calculator> {
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 5),
-        child: Column(
+          child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Row(
@@ -53,34 +52,34 @@ class _CalculatorState extends State<Calculator> {
                 Padding(
                   padding: EdgeInsets.all(10.0),
                   child: Text(
-                    'text', // do sprawdzenia
+                    text,
                     textAlign: TextAlign.left,
                     style: TextStyle(color: Colors.white, fontSize: 80),
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 0),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 numButton("7", (Colors.white), Colors.black),
                 numButton("8", (Colors.white), Colors.black),
                 numButton("9", (Colors.white), Colors.black),
               ],
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 0),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 numButton("4", (Colors.white), Colors.black),
                 numButton("5", (Colors.white), Colors.black),
                 numButton("6", (Colors.white), Colors.black),
               ],
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 0),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 numButton("1", (Colors.white), Colors.black),
                 numButton("2", (Colors.white), Colors.black),
@@ -88,22 +87,72 @@ class _CalculatorState extends State<Calculator> {
 
               ],
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 0),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 numButton(".", (Colors.white), Colors.black),
                 numButton("0", (Colors.white), Colors.black),
                 numButton("=", (Colors.white), Colors.black),
               ],
             ),
+            SizedBox(height: 0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextButton(
+                    onPressed: () { },
+                    child: Text('^'),
+                  )
+              ],
+            ),
             SizedBox(height: 10),
+
           ],
         ),
+
       ),
     )
   );
   }
+  int firstNumber = 0;
+  int secondNumber = 0;
+  String result = "";
+  String text = "";
+  String operation = "";
 
-  void calculate(String btnText) {}
+  void calculate(String btnText) {
+    if (btnText == "C") {
+      result = "";
+      text = "";
+      firstNumber = 0;
+      secondNumber = 0;
+    } else if (btnText == "+" ||
+        btnText == "-" ||
+        btnText == "x" ||
+        btnText == "/") {
+      firstNumber = int.parse(text);
+      result = "";
+      operation = btnText;
+    } else if (btnText == "=") {
+      secondNumber = int.parse(text);
+      if (operation == "+") {
+        result = (firstNumber + secondNumber).toString();
+      }
+      if (operation == "-") {
+        result = (firstNumber - secondNumber).toString();
+      }
+      if (operation == "x") {
+        result = (firstNumber * secondNumber).toString();
+      }
+      if (operation == "/") {
+        result = (firstNumber ~/ secondNumber).toString();
+      }
+    } else {
+      result = int.parse(text + btnText).toString();
+    }
+    setState(() {
+      text = result;
+    });
+  }
 }
