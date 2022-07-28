@@ -7,6 +7,12 @@ class Calculator extends StatefulWidget {
   State<Calculator> createState() => _CalculatorState();
 }
 
+int firstNumber = 0;
+int secondNumber = 0;
+String result = "";
+String text = "0";
+String operation = "";
+
 class _CalculatorState extends State<Calculator> {
   Widget numButton(String btnText, Color btnColor, Color txtColor,double btnwidth, double btnhight) {
     return ElevatedButton(
@@ -27,6 +33,7 @@ class _CalculatorState extends State<Calculator> {
       ),
     );
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -65,13 +72,13 @@ class _CalculatorState extends State<Calculator> {
               children: [
                 Column(
                   children: [
-                  Row(
+                    Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       numButton("C", (Colors.transparent), Colors.white,30,60),
                     ],
                   ),
-                  SizedBox(height: 0),
+                    SizedBox(height: 0),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -113,6 +120,9 @@ class _CalculatorState extends State<Calculator> {
                 ),
                 Column(
                     children: [
+                      Container(
+                          color: Colors.white,
+                          child:
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
@@ -121,7 +131,11 @@ class _CalculatorState extends State<Calculator> {
                           numButton("9", (Colors.white), Colors.black,105,90),
                         ],
                       ),
+                      ),
                       SizedBox(height: 0),
+                      Container(
+                          color: Colors.white,
+                          child:
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
@@ -130,7 +144,11 @@ class _CalculatorState extends State<Calculator> {
                           numButton("6", (Colors.white), Colors.black,105,90),
                         ],
                       ),
+                      ),
                       SizedBox(height: 0),
+                      Container(
+                          color: Colors.white,
+                          child:
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
@@ -140,7 +158,11 @@ class _CalculatorState extends State<Calculator> {
 
                         ],
                       ),
+                      ),
                       SizedBox(height: 0),
+                      Container(
+                          color: Colors.white,
+                          child:
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
@@ -149,12 +171,16 @@ class _CalculatorState extends State<Calculator> {
                           numButton("=", (Colors.white), Colors.black,105,90),
                         ],
                       ),
+                      ),
                       SizedBox(height: 0),
                     ]
 
                 ),
               ],
             ),
+        Container(
+          color: Colors.black,
+          child:
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -164,6 +190,7 @@ class _CalculatorState extends State<Calculator> {
                 )
               ],
             ),
+        ),
             SizedBox(height: 10),
           ],
         ),
@@ -173,11 +200,7 @@ class _CalculatorState extends State<Calculator> {
     )
   );
   }
-  int firstNumber = 0;
-  int secondNumber = 0;
-  String result = "";
-  String text = "";
-  String operation = "";
+
 
   void calculate(String btnText) {
     if (btnText == "C") {
