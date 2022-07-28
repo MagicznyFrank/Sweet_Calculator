@@ -8,7 +8,7 @@ class Calculator extends StatefulWidget {
 }
 
 class _CalculatorState extends State<Calculator> {
-  Widget numButton(String btnText, Color btnColor, Color txtColor) {
+  Widget numButton(String btnText, Color btnColor, Color txtColor,double btnwidth, double btnhight) {
     return ElevatedButton(
       onPressed: () {
         calculate(btnText);
@@ -21,8 +21,9 @@ class _CalculatorState extends State<Calculator> {
         ),
       ),
       style: ElevatedButton.styleFrom(
-        fixedSize: Size(70, 70),
-        primary: btnColor,
+    fixedSize: Size(btnwidth, btnhight),
+    primary: btnColor,shadowColor: Colors.transparent
+
       ),
     );
   }
@@ -61,55 +62,112 @@ class _CalculatorState extends State<Calculator> {
             ),
             SizedBox(height: 0),
             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                numButton("7", (Colors.white), Colors.black),
-                numButton("8", (Colors.white), Colors.black),
-                numButton("9", (Colors.white), Colors.black),
-              ],
-            ),
-            SizedBox(height: 0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                numButton("4", (Colors.white), Colors.black),
-                numButton("5", (Colors.white), Colors.black),
-                numButton("6", (Colors.white), Colors.black),
-              ],
-            ),
-            SizedBox(height: 0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                numButton("1", (Colors.white), Colors.black),
-                numButton("2", (Colors.white), Colors.black),
-                numButton("3", (Colors.white), Colors.black),
+                Column(
+                  children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      numButton("C", (Colors.transparent), Colors.white,30,60),
+                    ],
+                  ),
+                  SizedBox(height: 0),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        numButton("back",
+                            (Colors.transparent), Colors.white,30,60),
+                      ],
+                    ),
+                    SizedBox(height: 0),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        numButton("/", (Colors.transparent), Colors.white,30,60),
+                      ],
+                    ),
+                    SizedBox(height: 0),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        numButton("*", (Colors.transparent), Colors.white,30,60),
+                      ],
+                    ),
+                    SizedBox(height: 0),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        numButton("+", (Colors.transparent), Colors.white,30,60),
+                      ],
+                    ),
+                    SizedBox(height: 0),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        numButton("-", (Colors.transparent), Colors.white,30,60),
+                      ],
+                    ),
+                    SizedBox(height: 0),
 
+                ]
+                ),
+                Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          numButton("7", (Colors.white), Colors.black,105,90),
+                          numButton("8", (Colors.white), Colors.black,105,90),
+                          numButton("9", (Colors.white), Colors.black,105,90),
+                        ],
+                      ),
+                      SizedBox(height: 0),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          numButton("4", (Colors.white), Colors.black,105,90),
+                          numButton("5", (Colors.white), Colors.black,105,90),
+                          numButton("6", (Colors.white), Colors.black,105,90),
+                        ],
+                      ),
+                      SizedBox(height: 0),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          numButton("1", (Colors.white), Colors.black,105,90),
+                          numButton("2", (Colors.white), Colors.black,105,90),
+                          numButton("3", (Colors.white), Colors.black,105,90),
+
+                        ],
+                      ),
+                      SizedBox(height: 0),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          numButton(".", (Colors.white), Colors.black,105,90),
+                          numButton("0", (Colors.white), Colors.black,105,90),
+                          numButton("=", (Colors.white), Colors.black,105,90),
+                        ],
+                      ),
+                      SizedBox(height: 0),
+                    ]
+
+                ),
               ],
             ),
-            SizedBox(height: 0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                numButton(".", (Colors.white), Colors.black),
-                numButton("0", (Colors.white), Colors.black),
-                numButton("=", (Colors.white), Colors.black),
-              ],
-            ),
-            SizedBox(height: 0),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TextButton(
-                    onPressed: () { },
-                    child: Text('^'),
-                  )
+              children: [
+                TextButton(
+                  onPressed: () { },
+                  child: Text('^'),
+                )
               ],
             ),
             SizedBox(height: 10),
-
           ],
         ),
+
 
       ),
     )
@@ -129,7 +187,7 @@ class _CalculatorState extends State<Calculator> {
       secondNumber = 0;
     } else if (btnText == "+" ||
         btnText == "-" ||
-        btnText == "x" ||
+        btnText == "*" ||
         btnText == "/") {
       firstNumber = int.parse(text);
       result = "";
@@ -142,7 +200,7 @@ class _CalculatorState extends State<Calculator> {
       if (operation == "-") {
         result = (firstNumber - secondNumber).toString();
       }
-      if (operation == "x") {
+      if (operation == "*") {
         result = (firstNumber * secondNumber).toString();
       }
       if (operation == "/") {
