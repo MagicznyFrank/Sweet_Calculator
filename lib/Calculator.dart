@@ -67,6 +67,19 @@ class _CalculatorState extends State<Calculator> {
                 ),
               ],
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: Text(
+                    text,
+                    textAlign: TextAlign.left,
+                    style: TextStyle(color: Colors.white, fontSize: 40),
+                  ),
+                ),
+              ],
+            ),
             SizedBox(height: 0),
             Row(
               children: [
@@ -204,8 +217,8 @@ class _CalculatorState extends State<Calculator> {
 
   void calculate(String btnText) {
     if (btnText == "C") {
-      result = "";
-      text = "";
+      result = "0";
+      text = "0";
       firstNumber = 0;
       secondNumber = 0;
     } else if (btnText == "+" ||
