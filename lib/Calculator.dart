@@ -196,6 +196,8 @@ class _CalculatorState extends State<Calculator> {
                     ),
                     Column(
                         children:
+                            Stack(
+                              children:
                           <Widget>[
                             Positioned(
                               right:0,
@@ -269,6 +271,7 @@ class _CalculatorState extends State<Calculator> {
                           SizedBox(height: 0),
 
                        ]
+                            ),
                     ),
                   ],
                 ),
