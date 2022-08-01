@@ -195,22 +195,26 @@ class _CalculatorState extends State<Calculator> {
                         ]
                     ),
                     Column(
-                        children: [
-                          Container(
-                            color: Colors.white,
-                            child:
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                numButton("7", (Colors.white), Colors.black,
-                                    105, 90),
-                                numButton("8", (Colors.white), Colors.black,
-                                    105, 90),
-                                numButton("9", (Colors.white), Colors.black,
-                                    105, 90),
-                              ],
+                        children:
+                          <Widget>[
+                            Positioned(child:
+                            Container(
+                              color: Colors.white,
+                              child:
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  numButton("7", (Colors.white), Colors.black,
+                                      105, 90),
+                                  numButton("8", (Colors.white), Colors.black,
+                                      105, 90),
+                                  numButton("9", (Colors.white), Colors.black,
+                                      105, 90),
+                                ],
+                              ),
                             ),
-                          ),
+                            ),
+
                           SizedBox(height: 0),
                           Container(
                             color: Colors.white,
@@ -261,8 +265,8 @@ class _CalculatorState extends State<Calculator> {
                             ),
                           ),
                           SizedBox(height: 0),
-                        ]
 
+                       ]
                     ),
                   ],
                 ),
