@@ -197,7 +197,9 @@ class _CalculatorState extends State<Calculator> {
                     Column(
                         children:
                           <Widget>[
-                            Positioned(child:
+                            Positioned(
+                              right:0,
+                              child:
                             Container(
                               color: Colors.white,
                               child:
