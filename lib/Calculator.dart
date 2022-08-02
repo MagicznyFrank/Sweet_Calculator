@@ -71,7 +71,7 @@ class _CalculatorState extends State<Calculator> {
   Widget numButton(String btnText, Color btnColor, Color txtColor,
       double btnwidth, double btnhight) {
     return ElevatedButton(
-        onPressed: () => buttonPressed(btnText),
+      onPressed: () => buttonPressed(btnText),
       child: Text(
         btnText,
         style: TextStyle(
@@ -86,6 +86,8 @@ class _CalculatorState extends State<Calculator> {
       ),
     );
   }
+
+
 
 
   @override
@@ -134,6 +136,8 @@ class _CalculatorState extends State<Calculator> {
                   ],
                 ),
                 SizedBox(height: 0),
+                Stack(
+                  children: <Widget>[
                 Row(
                   children: [
                     Column(
@@ -195,30 +199,22 @@ class _CalculatorState extends State<Calculator> {
                         ]
                     ),
                     Column(
-                        children:
-                            Stack(
-                              children:
-                          <Widget>[
-                            Positioned(
-                              right:0,
-                              child:
-                            Container(
-                              color: Colors.white,
-                              child:
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  numButton("7", (Colors.white), Colors.black,
-                                      105, 90),
-                                  numButton("8", (Colors.white), Colors.black,
-                                      105, 90),
-                                  numButton("9", (Colors.white), Colors.black,
-                                      105, 90),
-                                ],
-                              ),
+                        children: [
+                          Container(
+                            color: Colors.white,
+                            child:
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                numButton("7", (Colors.white), Colors.black,
+                                    105, 90),
+                                numButton("8", (Colors.white), Colors.black,
+                                    105, 90),
+                                numButton("9", (Colors.white), Colors.black,
+                                    105, 90),
+                              ],
                             ),
-                            ),
-
+                          ),
                           SizedBox(height: 0),
                           Container(
                             color: Colors.white,
@@ -270,8 +266,7 @@ class _CalculatorState extends State<Calculator> {
                           ),
                           SizedBox(height: 0),
 
-                       ]
-                            ),
+                        ]
                     ),
                   ],
                 ),
@@ -281,14 +276,36 @@ class _CalculatorState extends State<Calculator> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     mainAxisSize: MainAxisSize.max,
-
                     children: [
-                      TextButton(
-                        onPressed: () {},
-                        child: Text('^'),
+                      ElevatedButton(
+                          child: const Text('^'),
+                      onPressed: (){
+                            showBottomSheet(
+                                context: context,
+                                builder: (BuildContext contex)
+                                {
+                                  return Container(
+                                    height: 200,
+                                    color: Colors.black12,
+                                      child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: <Widget>[
+                                      const Text('Modal BottomSheet'),
+                                  ElevatedButton(
+                                  child: const Text('Close BottomSheet'),
+                                onPressed: () => Navigator.pop(context),
+                                  )
+                                ],
+                                  )
+                                  );
+                                }
+                            );
+                      },
                       )
                     ],
                   ),
+                ),
+                  ],
                 ),
                 SizedBox(height: 10),
               ],
