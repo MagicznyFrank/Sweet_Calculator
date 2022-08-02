@@ -87,9 +87,6 @@ class _CalculatorState extends State<Calculator> {
     );
   }
 
-
-
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -105,7 +102,7 @@ class _CalculatorState extends State<Calculator> {
             backgroundColor: Colors.black,
           ),
           body: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 5),
+            padding: EdgeInsets.symmetric(horizontal: 0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -270,8 +267,9 @@ class _CalculatorState extends State<Calculator> {
                     ),
                   ],
                 ),
-                Container(
-                  color: Colors.black,
+                Positioned(
+                  bottom: 10,
+                  left: 165,
                   child:
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -280,7 +278,7 @@ class _CalculatorState extends State<Calculator> {
                       ElevatedButton(
                           child: const Text('^'),
                       onPressed: (){
-                            showBottomSheet(
+                        showModalBottomSheet (
                                 context: context,
                                 builder: (BuildContext contex)
                                 {
@@ -290,11 +288,7 @@ class _CalculatorState extends State<Calculator> {
                                       child: Row(
                                       mainAxisSize: MainAxisSize.min,
                                       children: <Widget>[
-                                      const Text('Modal BottomSheet'),
-                                  ElevatedButton(
-                                  child: const Text('Close BottomSheet'),
-                                onPressed: () => Navigator.pop(context),
-                                  )
+                                      const Text('BottomSheet'),
                                 ],
                                   )
                                   );
