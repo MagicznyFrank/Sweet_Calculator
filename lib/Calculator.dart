@@ -112,7 +112,7 @@ class _CalculatorState extends State<Calculator> {
                     Padding(
                       padding: EdgeInsets.all(10.0),
                       child: Text(
-                        result,
+                        equation,
                         textAlign: TextAlign.left,
                         style: TextStyle(color: Colors.white, fontSize: 80),
                       ),
@@ -122,19 +122,21 @@ class _CalculatorState extends State<Calculator> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Padding(
+                   Expanded(
+                    child: Padding(
                       padding: EdgeInsets.all(10.0),
                       child: Text(
-                        equation,
-                        textAlign: TextAlign.left,
+                        result,
+                        textAlign: TextAlign.right,
                         style: TextStyle(color: Colors.white, fontSize: 40),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
                       ),
                     ),
+                   )
                   ],
                 ),
                 SizedBox(height: 0),
-                Stack(
-                  children: <Widget>[
                 Row(
                   children: [
                     Column(
@@ -241,7 +243,6 @@ class _CalculatorState extends State<Calculator> {
                                     105, 90),
                                 numButton("3", (Colors.white), Colors.black,
                                     105, 90),
-
                               ],
                             ),
                           ),
@@ -283,14 +284,81 @@ class _CalculatorState extends State<Calculator> {
                                 builder: (BuildContext contex)
                                 {
                                   return Container(
-                                    height: 200,
+                                    height: 360,
                                     color: Colors.black12,
-                                      child: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: <Widget>[
-                                      const Text('BottomSheet'),
-                                ],
-                                  )
+                                      child: Column(
+                                        children: [
+                                        Container(
+                                        color: Colors.black,
+                                        child:
+                                        Row(
+                                          mainAxisAlignment: MainAxisAlignment.end,
+                                          children: [
+                                            numButton("INV", (Colors.black), Colors.white,
+                                                95, 90),
+                                            numButton("RAD", (Colors.black), Colors.white,
+                                                95, 90),
+                                            numButton("%", (Colors.black), Colors.white,
+                                                95, 90),
+                                            numButton("sqrt", (Colors.black), Colors.white,
+                                                95, 90),
+                                          ],
+                                        ),
+                                        ),
+                                          Container(
+                                            color: Colors.black,
+                                            child:
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.end,
+                                              children: [
+                                                numButton("sin", (Colors.black), Colors.white,
+                                                    95, 90),
+                                                numButton("cos", (Colors.black), Colors.white,
+                                                    95, 90),
+                                                numButton("tan", (Colors.black), Colors.white,
+                                                    95, 90),
+                                                numButton("ln", (Colors.black), Colors.white,
+                                                    95, 90),
+                                              ],
+                                            ),
+                                          ),
+                                          Container(
+                                            color: Colors.black,
+                                            child:
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.end,
+                                              children: [
+                                                numButton("log", (Colors.black), Colors.white,
+                                                    95, 90),
+                                                numButton("!", (Colors.black), Colors.white,
+                                                    95, 90),
+                                                numButton("Pi", (Colors.black), Colors.white,
+                                                    95, 90),
+                                                numButton("e", (Colors.black), Colors.white,
+                                                    95, 90),
+                                              ],
+                                            ),
+                                          ),
+                                          Container(
+                                            color: Colors.black,
+                                            child:
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.end,
+                                              children: [
+                                                numButton("^", (Colors.black), Colors.white,
+                                                    95, 90),
+                                                numButton("(", (Colors.black), Colors.white,
+                                                    95, 90),
+                                                numButton(")", (Colors.black), Colors.white,
+                                                    95, 90),
+                                                numButton("v", (Colors.black), Colors.white,
+                                                    95, 90),
+                                              ],
+                                            ),
+                                          ),
+
+                                      ],
+                                      ),
                                   );
                                 }
                             );
@@ -299,11 +367,11 @@ class _CalculatorState extends State<Calculator> {
                     ],
                   ),
                 ),
-                  ],
-                ),
+
+
                 SizedBox(height: 10),
-              ],
-            ),
+          ]
+          ),
 
 
           ),
