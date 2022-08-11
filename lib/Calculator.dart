@@ -94,7 +94,6 @@ class _CalculatorState extends State<Calculator> {
      return Scaffold(
          backgroundColor: Colors.transparent,
           body: Container(
-            padding: EdgeInsets.symmetric(horizontal: 5),
             decoration: const BoxDecoration(
                 gradient: LinearGradient(
                     begin: Alignment.topLeft,
@@ -134,7 +133,6 @@ class _CalculatorState extends State<Calculator> {
                    )
                   ],
                 ),
-                SizedBox(height: 0),
                 Row(
                   children: [
                     Column(
@@ -143,11 +141,10 @@ class _CalculatorState extends State<Calculator> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               numButton(
-                                  "C", (Colors.transparent), Colors.white, 67.727,
+                                  "C", (Colors.transparent), Colors.white, 77,
                                   60),
                             ],
                           ),
-                          SizedBox(height: 0),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
@@ -155,7 +152,6 @@ class _CalculatorState extends State<Calculator> {
                                   (Colors.transparent), Colors.white, 30, 60),
                             ],
                           ),
-                          SizedBox(height: 0),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
@@ -164,7 +160,6 @@ class _CalculatorState extends State<Calculator> {
                                   60),
                             ],
                           ),
-                          SizedBox(height: 0),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
@@ -173,7 +168,6 @@ class _CalculatorState extends State<Calculator> {
                                   60),
                             ],
                           ),
-                          SizedBox(height: 0),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
@@ -182,7 +176,6 @@ class _CalculatorState extends State<Calculator> {
                                   60),
                             ],
                           ),
-                          SizedBox(height: 0),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
@@ -191,14 +184,17 @@ class _CalculatorState extends State<Calculator> {
                                   60),
                             ],
                           ),
-                          SizedBox(height: 0),
-
                         ]
                     ),
                     Column(
                         children: [
                           Container(
-                            color: Colors.white,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(20),
+                              ),
+                            ),
                             child:
                             Row(
                               mainAxisAlignment: MainAxisAlignment.end,
@@ -212,7 +208,6 @@ class _CalculatorState extends State<Calculator> {
                               ],
                             ),
                           ),
-                          SizedBox(height: 0),
                           Container(
                             color: Colors.white,
                             child:
@@ -228,7 +223,6 @@ class _CalculatorState extends State<Calculator> {
                               ],
                             ),
                           ),
-                          SizedBox(height: 0),
                           Container(
                             color: Colors.white,
                             child:
@@ -244,7 +238,6 @@ class _CalculatorState extends State<Calculator> {
                               ],
                             ),
                           ),
-                          SizedBox(height: 0),
                           Container(
                             color: Colors.white,
                             child:
@@ -260,8 +253,6 @@ class _CalculatorState extends State<Calculator> {
                               ],
                             ),
                           ),
-                          SizedBox(height: 0),
-
                         ]
                     ),
                   ],
@@ -270,8 +261,15 @@ class _CalculatorState extends State<Calculator> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     mainAxisSize: MainAxisSize.max,
                     children: [
+                      Container(
+                      color: Colors.black,
+                      width: 392.7,
+                    child:
                       ElevatedButton(
-                          child: const Text('^'),
+                          child: const Text('ᐱ'),
+                        style: ElevatedButton.styleFrom(
+                            primary: Colors.black, shadowColor: Colors.transparent
+                        ),
                       onPressed: (){
                         showModalBottomSheet (
                                 context: context,
@@ -358,12 +356,10 @@ class _CalculatorState extends State<Calculator> {
                             );
                       },
                       )
+                      )
                     ],
-                  ),
+                     ),
 
-
-
-                SizedBox(height: 10),
           ]
           ),
 
