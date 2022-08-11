@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:math_expressions/math_expressions.dart';
 
+
 class Calculator extends StatefulWidget {
   const Calculator({Key? key}) : super(key: key);
 
@@ -88,17 +89,21 @@ class _CalculatorState extends State<Calculator> {
   }
 
   @override
+
   Widget build(BuildContext context) {
      return Scaffold(
-          backgroundColor: Colors.transparent,
-
-          body: Padding(
+         backgroundColor: Colors.transparent,
+          body: Container(
             padding: EdgeInsets.symmetric(horizontal: 5),
+            decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [Colors.green, Colors.yellow])),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -138,7 +143,7 @@ class _CalculatorState extends State<Calculator> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               numButton(
-                                  "C", (Colors.transparent), Colors.white, 77.7,
+                                  "C", (Colors.transparent), Colors.white, 67.727,
                                   60),
                             ],
                           ),
@@ -261,10 +266,6 @@ class _CalculatorState extends State<Calculator> {
                     ),
                   ],
                 ),
-                Positioned(
-                  bottom: 10,
-                  left: 165,
-                  child:
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     mainAxisSize: MainAxisSize.max,
@@ -285,7 +286,7 @@ class _CalculatorState extends State<Calculator> {
                                         color: Colors.black,
                                         child:
                                         Row(
-                                          mainAxisAlignment: MainAxisAlignment.end,
+                                          mainAxisAlignment: MainAxisAlignment.center,
                                           children: [
                                             numButton("INV", (Colors.black), Colors.white,
                                                 95, 45),
@@ -302,7 +303,7 @@ class _CalculatorState extends State<Calculator> {
                                             color: Colors.black,
                                             child:
                                             Row(
-                                              mainAxisAlignment: MainAxisAlignment.end,
+                                              mainAxisAlignment: MainAxisAlignment.center,
                                               children: [
                                                 numButton("sin", (Colors.black), Colors.white,
                                                     95, 45),
@@ -319,7 +320,7 @@ class _CalculatorState extends State<Calculator> {
                                             color: Colors.black,
                                             child:
                                             Row(
-                                              mainAxisAlignment: MainAxisAlignment.end,
+                                              mainAxisAlignment: MainAxisAlignment.center,
                                               children: [
                                                 numButton("log", (Colors.black), Colors.white,
                                                     95, 45),
@@ -336,7 +337,7 @@ class _CalculatorState extends State<Calculator> {
                                             color: Colors.black,
                                             child:
                                             Row(
-                                              mainAxisAlignment: MainAxisAlignment.end,
+                                              mainAxisAlignment: MainAxisAlignment.center,
                                               children: [
                                                 numButton("^", (Colors.black), Colors.white,
                                                     95, 45),
@@ -359,7 +360,7 @@ class _CalculatorState extends State<Calculator> {
                       )
                     ],
                   ),
-                ),
+
 
 
                 SizedBox(height: 10),
