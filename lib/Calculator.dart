@@ -107,7 +107,7 @@ class _CalculatorState extends State<Calculator> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Padding(
-                      padding: EdgeInsets.all(0),
+                      padding: EdgeInsets.only(right: 20),
                       child: Text(
                         equation,
                         textAlign: TextAlign.left,
@@ -121,7 +121,7 @@ class _CalculatorState extends State<Calculator> {
                   children: [
                    Expanded(
                     child: Padding(
-                      padding: EdgeInsets.all(0),
+                      padding: EdgeInsets.only(right: 20),
                       child: Text(
                         result,
                         textAlign: TextAlign.right,
