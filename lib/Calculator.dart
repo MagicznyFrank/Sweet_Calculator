@@ -89,28 +89,21 @@ class _CalculatorState extends State<Calculator> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        decoration: const BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [Colors.green, Colors.yellow])),
-        child: Scaffold(
+     return Scaffold(
           backgroundColor: Colors.transparent,
-          appBar: AppBar(
-            title: Text("Calculator"),
-            backgroundColor: Colors.black,
-          ),
+
           body: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 0),
+            padding: EdgeInsets.symmetric(horizontal: 5),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Padding(
-                      padding: EdgeInsets.all(10.0),
+                      padding: EdgeInsets.all(0),
                       child: Text(
                         equation,
                         textAlign: TextAlign.left,
@@ -124,7 +117,7 @@ class _CalculatorState extends State<Calculator> {
                   children: [
                    Expanded(
                     child: Padding(
-                      padding: EdgeInsets.all(10.0),
+                      padding: EdgeInsets.all(0),
                       child: Text(
                         result,
                         textAlign: TextAlign.right,
@@ -145,7 +138,7 @@ class _CalculatorState extends State<Calculator> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               numButton(
-                                  "C", (Colors.transparent), Colors.white, 30,
+                                  "C", (Colors.transparent), Colors.white, 77.7,
                                   60),
                             ],
                           ),
@@ -332,7 +325,7 @@ class _CalculatorState extends State<Calculator> {
                                                     95, 45),
                                                 numButton("!", (Colors.black), Colors.white,
                                                     95, 45),
-                                                numButton("Pi", (Colors.black), Colors.white,
+                                                numButton("pi", (Colors.black), Colors.white,
                                                     95, 45),
                                                 numButton("e", (Colors.black), Colors.white,
                                                     95, 45),
@@ -375,7 +368,6 @@ class _CalculatorState extends State<Calculator> {
 
 
           ),
-        )
     );
   }
 }
