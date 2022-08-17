@@ -283,21 +283,52 @@ class _CalculatorState extends State<Calculator> {
                             setState(() {
                               BottomSheetState = true;
                               if(BottomSheetState == true){
-                                cnhight = 140;
+                                cnhight = 182;
                               }
                               else if(BottomSheetState == false){
                                 cnhight = 0;
                               }
                             });
                         showModalBottomSheet (
+                                barrierColor: Colors.white.withOpacity(0),
                                 context: context,
                                 builder: (BuildContext contex)
                                 {
                                   return Container(
-                                    height: 192,
+                                    height: 240,
                                     color: Colors.black12,
                                       child: Column(
                                         children: [
+                                          Container(
+                                            color: Colors.black,
+                                            child:
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                            ElevatedButton(
+                                            child: const Text('down'),
+                                        style: ElevatedButton.styleFrom(
+                                            primary: Colors.black, shadowColor: Colors.transparent
+                                        ),
+
+                                                onPressed: () => Navigator.pop(context)
+                                                /*
+                                                onPressed: (){
+                                                setState(() {
+                                                BottomSheetState = true;
+                                                if(BottomSheetState == true){
+                                                cnhight = 182;
+                                                }
+                                                else if(BottomSheetState == false){
+                                                cnhight = 0;
+                                                }
+                                });
+                                */
+
+                                            )
+                                              ],
+                                            ),
+                                          ),
                                         Container(
                                         color: Colors.black,
                                         child:
