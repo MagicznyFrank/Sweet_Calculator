@@ -311,20 +311,22 @@ class _CalculatorState extends State<Calculator> {
                                             primary: Colors.black, shadowColor: Colors.transparent
                                         ),
 
-                                                onPressed: () => Navigator.pop(context)
-                                                /*
-                                                onPressed: (){
-                                                setState(() {
-                                                BottomSheetState = true;
-                                                if(BottomSheetState == true){
-                                                cnhight = 182;
-                                                }
-                                                else if(BottomSheetState == false){
-                                                cnhight = 0;
-                                                }
-                                });
-                                */
+                                               // onPressed: () => Navigator.pop(context)
 
+                                                onPressed: () {
+                                                  setState(() {
+                                                    Navigator.pop(context);
+                                                    BottomSheetState = false;
+                                                    if (BottomSheetState ==
+                                                        true) {
+                                                      cnhight = 182;
+                                                    }
+                                                    else if (BottomSheetState ==
+                                                        false) {
+                                                      cnhight = 0;
+                                                    }
+                                                  });
+                                                }
                                             )
                                               ],
                                             ),
