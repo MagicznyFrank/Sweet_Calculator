@@ -18,6 +18,7 @@ class _CalculatorState extends State<Calculator> {
   String expression = "";
   double equationFontSize = 38.0;
   double resultFontSize = 48.0;
+  bool BottomSheetState = false;
 
   buttonPressed(String buttonText){
     setState(() {
@@ -36,10 +37,15 @@ class _CalculatorState extends State<Calculator> {
           equation = "0";
         }
       }
-      else if(buttonText == "Pi"){
+      else if(buttonText == "pi"){
         equationFontSize = 48.0;
         resultFontSize = 38.0;
-        equation = equation.substring(0, equation.length - 1);
+        if(equation == "0"){
+          equation = "3.14";
+        }
+        else{
+          equation += "3.14";
+        }
         if(equation == ""){
           equation = "0";
         }
