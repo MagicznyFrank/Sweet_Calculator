@@ -22,6 +22,13 @@ class _CalculatorState extends State<Calculator> {
 
   buttonPressed(String buttonText){
     setState(() {
+      if(buttonText == "ᐱ"){
+        BottomSheetState=true;
+      }
+      else{
+        BottomSheetState=false;
+      }
+
       if(buttonText == "C"){
         equation = "0";
         result = "0";
@@ -202,6 +209,10 @@ class _CalculatorState extends State<Calculator> {
                     ),
                     Column(
                         children: [
+                          if(BottomSheetState == true)(
+                              Padding(padding: EdgeInsets.only(bottom: 192)
+                              )
+                          ),
                           Container(
                             decoration: BoxDecoration(
                               color: Colors.white,
@@ -266,6 +277,7 @@ class _CalculatorState extends State<Calculator> {
                                     105, 90),
                               ],
                             ),
+
                           ),
                         ]
                     ),
@@ -362,7 +374,6 @@ class _CalculatorState extends State<Calculator> {
                                               ],
                                             ),
                                           ),
-
                                       ],
                                       ),
                                   );
