@@ -36,6 +36,14 @@ class _CalculatorState extends State<Calculator> {
           equation = "0";
         }
       }
+      else if(buttonText == "Pi"){
+        equationFontSize = 48.0;
+        resultFontSize = 38.0;
+        equation = equation.substring(0, equation.length - 1);
+        if(equation == ""){
+          equation = "0";
+        }
+      }
 
       else if(buttonText == "="){
         equationFontSize = 38.0;
@@ -359,11 +367,8 @@ class _CalculatorState extends State<Calculator> {
                       )
                     ],
                      ),
-
           ]
           ),
-
-
           ),
     );
   }
