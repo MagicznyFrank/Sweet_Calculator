@@ -166,7 +166,7 @@ class _CalculatorState extends State<Calculator> {
       ),
       style: ElevatedButton.styleFrom(
           fixedSize: Size(btnwidth, btnhight),
-          primary: btnColor, shadowColor: Colors.transparent
+          primary: btnColor, shadowColor: Colors.transparent,elevation: 0,
 
       ),
     );
