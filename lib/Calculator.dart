@@ -127,7 +127,7 @@ class _CalculatorState extends State<Calculator> {
                       child: Text(
                         equation,
                         textAlign: TextAlign.left,
-                        style: TextStyle(color: Colors.white, fontSize: 80),
+                        style: TextStyle(color: Colors.white, fontSize: 40),
                       ),
                     ),
                   ],
@@ -141,7 +141,7 @@ class _CalculatorState extends State<Calculator> {
                       child: Text(
                         result,
                         textAlign: TextAlign.right,
-                        style: TextStyle(color: Colors.white, fontSize: 40),
+                        style: TextStyle(color: Colors.white, fontSize: 20),
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
                       ),
@@ -289,9 +289,11 @@ class _CalculatorState extends State<Calculator> {
                                 cnhight = 0;
                               }
                             });
-                        showModalBottomSheet (
+                                 showModalBottomSheet (
                                 barrierColor: Colors.white.withOpacity(0),
                                 context: context,
+                                isDismissible: false,
+                                enableDrag: false,
                                 builder: (BuildContext contex)
                                 {
                                   return Container(
