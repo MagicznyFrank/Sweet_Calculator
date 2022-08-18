@@ -18,6 +18,7 @@ class _CalculatorState extends State<Calculator> {
   String expression = "";
   double equationFontSize = 38.0;
   double resultFontSize = 48.0;
+  num btnSize = 25;
   bool BottomSheetState = false;
   double cnhight = 0;
 
@@ -85,14 +86,14 @@ class _CalculatorState extends State<Calculator> {
     });
   }
 
-  Widget numButton(String btnText, Color btnColor, Color txtColor,
+  Widget numButton(String btnText,double btnSize, Color btnColor, Color txtColor,
       double btnwidth, double btnhight) {
     return ElevatedButton(
       onPressed: () => buttonPressed(btnText),
       child: Text(
         btnText,
         style: TextStyle(
-          fontSize: 25,
+          fontSize: btnSize,
           color: txtColor,
         ),
       ),
@@ -104,10 +105,12 @@ class _CalculatorState extends State<Calculator> {
     );
   }
 
+  final scaffoldKey = GlobalKey<ScaffoldState>();
   @override
 
   Widget build(BuildContext context) {
      return Scaffold(
+       key: scaffoldKey,
          backgroundColor: Colors.transparent,
           body: Container(
             decoration: const BoxDecoration(
@@ -123,7 +126,7 @@ class _CalculatorState extends State<Calculator> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(right: 20),
+                      padding: EdgeInsets.only(right: 20,bottom: 50),
                       child: Text(
                         equation,
                         textAlign: TextAlign.left,
@@ -137,7 +140,7 @@ class _CalculatorState extends State<Calculator> {
                   children: [
                    Expanded(
                     child: Padding(
-                      padding: EdgeInsets.only(right: 20),
+                      padding: EdgeInsets.only(right: 20,bottom: 50),
                       child: Text(
                         result,
                         textAlign: TextAlign.right,
@@ -157,42 +160,37 @@ class _CalculatorState extends State<Calculator> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               numButton(
-                                  "C", (Colors.transparent), Colors.white, 77, 60),
+                                  "C",25, (Colors.transparent), Colors.white, 77, 60),
                             ],
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              numButton("⌫",
-                                  (Colors.transparent), Colors.white, 77, 60),
+                              numButton("⌫",25,(Colors.transparent), Colors.white, 77, 60),
                             ],
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              numButton(
-                                  "/", (Colors.transparent), Colors.white, 77, 60),
+                              numButton("/",25, (Colors.transparent), Colors.white, 77, 60),
                             ],
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              numButton(
-                                  "*", (Colors.transparent), Colors.white, 77, 60),
+                              numButton("*",25, (Colors.transparent), Colors.white, 77, 60),
                             ],
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              numButton(
-                                  "+", (Colors.transparent), Colors.white, 77, 60),
+                              numButton("+",25, (Colors.transparent), Colors.white, 77, 60),
                             ],
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              numButton(
-                                  "-", (Colors.transparent), Colors.white, 77, 60),
+                              numButton("-",25, (Colors.transparent), Colors.white, 77, 60),
                             ],
                           ),
                         ]
@@ -210,9 +208,9 @@ class _CalculatorState extends State<Calculator> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                numButton("7", (Colors.white), Colors.black, 105, 90),
-                                numButton("8", (Colors.white), Colors.black, 105, 90),
-                                numButton("9", (Colors.white), Colors.black, 105, 90),
+                                numButton("7",25, (Colors.white), Colors.grey, 105, 90),
+                                numButton("8",25, (Colors.white), Colors.grey, 105, 90),
+                                numButton("9",25, (Colors.white), Colors.grey, 105, 90),
                               ],
                             ),
                           ),
@@ -222,9 +220,9 @@ class _CalculatorState extends State<Calculator> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                numButton("4", (Colors.white), Colors.black, 105, 90),
-                                numButton("5", (Colors.white), Colors.black, 105, 90),
-                                numButton("6", (Colors.white), Colors.black, 105, 90),
+                                numButton("4",25, (Colors.white), Colors.grey, 105, 90),
+                                numButton("5",25, (Colors.white), Colors.grey, 105, 90),
+                                numButton("6",25, (Colors.white), Colors.grey, 105, 90),
                               ],
                             ),
                           ),
@@ -234,9 +232,9 @@ class _CalculatorState extends State<Calculator> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                numButton("1", (Colors.white), Colors.black, 105, 90),
-                                numButton("2", (Colors.white), Colors.black, 105, 90),
-                                numButton("3", (Colors.white), Colors.black, 105, 90),
+                                numButton("1",25, (Colors.white), Colors.grey, 105, 90),
+                                numButton("2",25, (Colors.white), Colors.grey, 105, 90),
+                                numButton("3",25, (Colors.white), Colors.grey, 105, 90),
                               ],
                             ),
                           ),
@@ -246,9 +244,9 @@ class _CalculatorState extends State<Calculator> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                numButton(".", (Colors.white), Colors.black, 105, 90),
-                                numButton("0", (Colors.white), Colors.black, 105, 90),
-                                numButton("=", (Colors.white), Colors.black, 105, 90),
+                                numButton(".",25, (Colors.white), Colors.grey, 105, 90),
+                                numButton("0",25, (Colors.white), Colors.grey, 105, 90),
+                                numButton("=",25,(Colors.white), Colors.grey, 105, 90),
                               ],
                             ),
                           ),
@@ -289,12 +287,8 @@ class _CalculatorState extends State<Calculator> {
                                 cnhight = 0;
                               }
                             });
-                                 showModalBottomSheet (
-                                barrierColor: Colors.white.withOpacity(0),
-                                context: context,
-                                isDismissible: false,
-                                enableDrag: false,
-                                builder: (BuildContext contex)
+                            scaffoldKey.currentState!.
+                                 showBottomSheet((context)
                                 {
                                   return Container(
                                     height: 240,
@@ -308,7 +302,7 @@ class _CalculatorState extends State<Calculator> {
                                               mainAxisAlignment: MainAxisAlignment.center,
                                               children: [
                                             ElevatedButton(
-                                            child: const Text('down'),
+                                            child: const Text('ᐯ'),
                                         style: ElevatedButton.styleFrom(
                                             primary: Colors.black, shadowColor: Colors.transparent
                                         ),
@@ -339,10 +333,10 @@ class _CalculatorState extends State<Calculator> {
                                         Row(
                                           mainAxisAlignment: MainAxisAlignment.center,
                                           children: [
-                                            numButton("INV", (Colors.black), Colors.white, 95, 45),
-                                            numButton("RAD", (Colors.black), Colors.white, 95, 45),
-                                            numButton("%", (Colors.black), Colors.white, 95, 45),
-                                            numButton("sqrt", (Colors.black), Colors.white, 95, 45),
+                                            numButton("INV",20, (Colors.black), Colors.white, 95, 45),
+                                            numButton("RAD",20, (Colors.black), Colors.white, 95, 45),
+                                            numButton("%",20, (Colors.black), Colors.white, 95, 45),
+                                            numButton("sqrt",20, (Colors.black), Colors.white, 95, 45),
                                           ],
                                         ),
                                         ),
@@ -352,10 +346,10 @@ class _CalculatorState extends State<Calculator> {
                                             Row(
                                               mainAxisAlignment: MainAxisAlignment.center,
                                               children: [
-                                                numButton("sin", (Colors.black), Colors.white, 95, 45),
-                                                numButton("cos", (Colors.black), Colors.white, 95, 45),
-                                                numButton("tan", (Colors.black), Colors.white, 95, 45),
-                                                numButton("ln", (Colors.black), Colors.white, 95, 45),
+                                                numButton("sin",20, (Colors.black), Colors.white, 95, 45),
+                                                numButton("cos",20, (Colors.black), Colors.white, 95, 45),
+                                                numButton("tan",20, (Colors.black), Colors.white, 95, 45),
+                                                numButton("ln",20, (Colors.black), Colors.white, 95, 45),
                                               ],
                                             ),
                                           ),
@@ -365,10 +359,10 @@ class _CalculatorState extends State<Calculator> {
                                             Row(
                                               mainAxisAlignment: MainAxisAlignment.center,
                                               children: [
-                                                numButton("log", (Colors.black), Colors.white, 95, 45),
-                                                numButton("!", (Colors.black), Colors.white, 95, 45),
-                                                numButton("pi", (Colors.black), Colors.white, 95, 45),
-                                                numButton("e", (Colors.black), Colors.white, 95, 45),
+                                                numButton("log",20, (Colors.black), Colors.white, 95, 45),
+                                                numButton("!",20, (Colors.black), Colors.white, 95, 45),
+                                                numButton("pi",20, (Colors.black), Colors.white, 95, 45),
+                                                numButton("e",20, (Colors.black), Colors.white, 95, 45),
                                               ],
                                             ),
                                           ),
@@ -378,10 +372,10 @@ class _CalculatorState extends State<Calculator> {
                                             Row(
                                               mainAxisAlignment: MainAxisAlignment.center,
                                               children: [
-                                                numButton("^", (Colors.black), Colors.white, 95, 45),
-                                                numButton("(", (Colors.black), Colors.white, 95, 45),
-                                                numButton(")", (Colors.black), Colors.white, 95, 45),
-                                                numButton("v", (Colors.black), Colors.white, 95, 45),
+                                                numButton("^",20, (Colors.black), Colors.white, 95, 45),
+                                                numButton("(",20, (Colors.black), Colors.white, 95, 45),
+                                                numButton(")",20, (Colors.black), Colors.white, 95, 45),
+                                                numButton("v",20, (Colors.black), Colors.white, 95, 45),
                                               ],
                                             ),
                                           ),
