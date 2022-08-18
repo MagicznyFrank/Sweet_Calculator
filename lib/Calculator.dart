@@ -36,6 +36,19 @@ class _CalculatorState extends State<Calculator> {
         equationFontSize = 48.0;
         resultFontSize = 38.0;
         equation = equation.substring(0, equation.length - 1);
+        expression = equation;
+        expression = expression.replaceAll('×', '*');
+        expression = expression.replaceAll('÷', '/');
+
+        try{
+          Parser p = Parser();
+          Expression exp = p.parse(expression);
+
+          ContextModel cm = ContextModel();
+          result = '${exp.evaluate(EvaluationType.REAL, cm)}';
+        }catch(e){
+          result = "Error";
+        }
         if(equation == ""){
           equation = "0";
         }
@@ -45,9 +58,35 @@ class _CalculatorState extends State<Calculator> {
         resultFontSize = 38.0;
         if(equation == "0"){
           equation = "3.14";
+          expression = equation;
+          expression = expression.replaceAll('×', '*');
+          expression = expression.replaceAll('÷', '/');
+
+          try{
+            Parser p = Parser();
+            Expression exp = p.parse(expression);
+
+            ContextModel cm = ContextModel();
+            result = '${exp.evaluate(EvaluationType.REAL, cm)}';
+          }catch(e){
+            result = "Error";
+          }
         }
         else{
           equation += "3.14";
+          expression = equation;
+          expression = expression.replaceAll('×', '*');
+          expression = expression.replaceAll('÷', '/');
+
+          try{
+            Parser p = Parser();
+            Expression exp = p.parse(expression);
+
+            ContextModel cm = ContextModel();
+            result = '${exp.evaluate(EvaluationType.REAL, cm)}';
+          }catch(e){
+            result = "Error";
+          }
         }
         if(equation == ""){
           equation = "0";
@@ -79,8 +118,35 @@ class _CalculatorState extends State<Calculator> {
         resultFontSize = 38.0;
         if(equation == "0"){
           equation = buttonText;
+          expression = equation;
+          expression = expression.replaceAll('×', '*');
+          expression = expression.replaceAll('÷', '/');
+
+          try{
+            Parser p = Parser();
+            Expression exp = p.parse(expression);
+
+            ContextModel cm = ContextModel();
+            result = '${exp.evaluate(EvaluationType.REAL, cm)}';
+          }catch(e){
+            result = "Error";
+          }
         }else {
           equation = equation + buttonText;
+          expression = equation;
+          expression = expression.replaceAll('×', '*');
+          expression = expression.replaceAll('÷', '/');
+
+          try{
+            Parser p = Parser();
+            Expression exp = p.parse(expression);
+
+            ContextModel cm = ContextModel();
+            result = '${exp.evaluate(EvaluationType.REAL, cm)}';
+          }catch(e){
+            result = "Error";
+          }
+
         }
       }
     });
